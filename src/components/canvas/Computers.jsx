@@ -12,6 +12,8 @@ const Computers = ({isMobile}) => {
       {/* adding light  foe model*/}
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
+      <ambientLight intensity={0.5} />
+
       <spotLight
         position={[-20, 50, -10]}
         angle={0.12}
@@ -20,12 +22,17 @@ const Computers = ({isMobile}) => {
         castShadow
         shadow-mapSize={1024}
       />
+      <directionalLight
+  position={[10, 10, 10]}
+  intensity={1.5}
+  castShadow
+/>
       {/* passs object to show */}
       {/* show object */}
       <primitive
         object={computer.scene}
         scale={ isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -4, -2.2] : [0, -5.25, -1.5]}
+        position={isMobile ? [0, -3.25, -2.2] : [0, -4.25, -1.5]}
 
         rotation={[-0.01, -0.2, -0.1]}
       />
