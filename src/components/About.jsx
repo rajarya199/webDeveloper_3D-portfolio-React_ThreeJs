@@ -4,7 +4,6 @@ import React from 'react'
  import {styles} from '../style'
  import {services} from '../constants';
  import {fadeIn,textVariant} from '../utils/motion'
-import { p } from 'framer-motion/client';
 import { SectionWrapper } from '../hoc';
 
  const ServiceCard=({index,title,icon})=>{
@@ -35,9 +34,9 @@ import { SectionWrapper } from '../hoc';
 const About = () => {
   return (
     <>
-    <motion.div>
-    <p className="styles.sectionSubText">Intoduction</p>
-    <p className="styles.sectionHeadText">Overview</p>
+    <motion.div variants={textVariant()}>
+    <p className={styles.sectionSubText}>Intoduction</p>
+    <p className={styles.sectionHeadText}>Overview</p>
     </motion.div>
     <motion.p variants={fadeIn("",",0.1,1")}
     className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
@@ -51,9 +50,10 @@ const About = () => {
     <div className="mt-20 flex flex-wrap gap-10 ">
       {services.map((service,index)=>(
         <ServiceCard key={service.title} index={index} {...service}/>
+        
       ))}
     </div>
-    About</>
+    </>
   )
 }
 
